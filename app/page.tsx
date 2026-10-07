@@ -331,6 +331,16 @@ export default function Home() {
                     <li key={technology}>{technology}</li>
                   ))}
                 </ul>
+                <div className="project-ctas">
+                  {projects[0].link ? (
+                    <a className="project-cta project-cta--primary" href={projects[0].link} target="_blank" rel="noreferrer">
+                      View live <span aria-hidden="true">↗</span>
+                    </a>
+                  ) : null}
+                  <a className="project-cta project-cta--outline" href="#contact">
+                    Discuss a similar project
+                  </a>
+                </div>
               </div>
               <aside className="project-metrics" aria-label="Project results">
                 <div>
@@ -346,6 +356,7 @@ export default function Home() {
                   <span>automated tests written</span>
                 </div>
               </aside>
+              <div className="project-featured-art" aria-hidden="true" />
             </article>
             <div className="projects-grid">
               {projects.slice(1).map((project) => (
@@ -372,6 +383,17 @@ export default function Home() {
                       <li key={technology}>{technology}</li>
                     ))}
                   </ul>
+                  <div className="project-card-footer">
+                    {project.link ? (
+                      <a className="button button-sm" href={project.link} target="_blank" rel="noreferrer">
+                        {project.linkLabel ?? 'View live'} <span aria-hidden="true">↗</span>
+                      </a>
+                    ) : (
+                      <a className="button button-sm button-outline" href="#contact">
+                        Discuss a similar project
+                      </a>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>
