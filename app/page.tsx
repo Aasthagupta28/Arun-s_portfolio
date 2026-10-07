@@ -46,6 +46,90 @@ const principles = [
   },
 ];
 
+const projects = [
+  {
+    number: "01",
+    category: "AI & DOCUMENTS",
+    role: "Freelance · Full-stack developer",
+    title: "AI Document Metadata Pipeline",
+    description:
+      "I built a pipeline that reads OCR magazine PDFs and extracts names, chapters, page titles, and subjects. It checks results against a client authority list of 146K+ member and chapter records, and flags uncertain matches for review. Batch processing can resume after crashes or OpenAI quota limits, with cost estimates, pre-run checks, QA reports, and one-click ZIP downloads.",
+    stack: ["Python", "FastAPI", "React", "OpenAI", "PyMuPDF", "pandas", "AWS"],
+  },
+  {
+    number: "02",
+    category: "FILM & MEDIA",
+    role: "Full-stack contribution",
+    title: "ONE WORLD 3D",
+    description:
+      "Contributed to a platform that turns written stories into cinematic reels. My work included story parsing, AI image, voice and video integrations, studio workflows, billing, role-based access, background jobs, and 3D assets.",
+    stack: [
+      "Django",
+      "React",
+      "Redux",
+      "Celery",
+      "Redis",
+      "MySQL",
+      "OpenAI",
+      "Gemini",
+      "ElevenLabs",
+      "fal.ai",
+      "Meshy AI",
+      "Stripe",
+      "PayPal",
+      "AWS S3",
+    ],
+  },
+  {
+    number: "03",
+    category: "E-COMMERCE",
+    role: "Full-stack developer",
+    title: "Artroom by Artjazz",
+    description:
+      "Built an online art store for a US-based artist, including the storefront and admin panel. Features include product galleries, wishlist, cart, PayPal payments, image uploads, and a “Price on Request” option.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "FastAPI",
+      "PostgreSQL",
+      "AWS EC2",
+      "AWS S3",
+      "PayPal",
+      "SQLAlchemy",
+      "Nginx",
+    ],
+    link: "https://artroombyartjazz.com",
+    linkLabel: "Visit live store",
+  },
+  {
+    number: "04",
+    category: "CRM & AGENCY TOOLS",
+    role: "Full-stack developer",
+    title: "AgencyFlow CRM",
+    description:
+      "Built a multi-tenant CRM for Indian digital agencies to manage leads, deals, clients, projects, GST invoices, and team workflows. Includes kanban pipelines, PDF invoices, role-based access, and a revenue dashboard.",
+    stack: ["Next.js", "React", "TypeScript", "FastAPI", "PostgreSQL"],
+  },
+  {
+    number: "05",
+    category: "HR & ADMIN",
+    role: "Full-stack developer",
+    title: "Smart HR Management System",
+    description:
+      "Developed a role-based HR dashboard to manage employees, departments, attendance, leave, recruitment, payroll structures, and company announcements.",
+    stack: ["Next.js", "React", "Tailwind CSS", "Python", "Django"],
+  },
+  {
+    number: "06",
+    category: "E-COMMERCE",
+    role: "Full-stack developer",
+    title: "Wooden Handicraft Store",
+    description:
+      "Created a responsive online store for handcrafted wooden showpieces, with a Next.js and React storefront and a Django backend for product data and business logic.",
+    stack: ["Next.js", "React", "Tailwind CSS", "Python", "Django"],
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -55,6 +139,7 @@ export default function Home() {
           <span className="wordmark-name">ARUN KUMAR</span>
         </a>
         <nav className="site-nav" aria-label="Main navigation">
+          <a href="#projects">Projects</a>
           <a href="#about">About</a>
           <a href="#focus">What I do</a>
           <a href="#approach">Approach</a>
@@ -83,8 +168,8 @@ export default function Home() {
               thoughtful, useful digital experiences.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#focus">
-                Explore what I do <span aria-hidden="true">↘</span>
+              <a className="button button-primary" href="#projects">
+                View projects <span aria-hidden="true">↘</span>
               </a>
               <a className="text-link" href="#about">
                 A little about me <span aria-hidden="true">↗</span>
@@ -148,7 +233,7 @@ export default function Home() {
             <span className="scroll-cue-line" />
             SCROLL TO EXPLORE
           </a>
-          <span className="hero-index" aria-hidden="true">01 — 04</span>
+          <span className="hero-index" aria-hidden="true">01 — 05</span>
         </section>
 
         <section className="intro-strip" aria-label="Areas of experience">
@@ -166,43 +251,129 @@ export default function Home() {
           <div className="section-kicker">
             <span>01 / A BIT ABOUT ME</span>
             <span className="kicker-rule" />
-            <span>THE PERSON BEHIND THE CODE</span>
+            <span>FULL-STACK DEVELOPER</span>
           </div>
           <div className="about-grid">
             <h2>
-              I like the part where
+              I build useful
               <br />
-              <span>complex gets clear.</span>
+              <span>things, end to end.</span>
             </h2>
             <div className="about-copy">
               <p>
-                I&apos;m a full-stack developer with experience in automation
-                and healthcare domain knowledge. I enjoy connecting technology
-                to real-world workflows—and making the result feel simple to
-                use.
+                I&apos;m Arun, a full-stack developer. I work across frontend
+                and backend, and like seeing a feature through from the first
+                screen to the data and logic behind it.
               </p>
               <p>
-                The details of my experience and the tools I work with are
-                coming soon. For now, this is the kind of work and thinking
-                I&apos;m excited to bring to a team.
+                My projects have included an AI-assisted archive tool, a
+                story-to-video production platform, e-commerce stores, an
+                agency CRM, and an HR system. Each has called for a different
+                mix of product work—from integrations and payments to
+                permissions, reporting, and reliable batch processing.
               </p>
-              <a className="inline-link" href="#contact">
-                Get in touch <span aria-hidden="true">↗</span>
+              <p>
+                I care about making software straightforward to use and
+                dependable behind the scenes. That usually means understanding
+                the day-to-day workflow first, then building only what helps
+                move it forward.
+              </p>
+              <a className="inline-link" href="#projects">
+                Explore my work <span aria-hidden="true">↘</span>
               </a>
             </div>
           </div>
           <div className="about-values">
             <div className="value-item">
-              <span className="value-index">A</span>
-              <span>Curious by default</span>
+              <span className="value-index">01</span>
+              <span>Frontend to backend</span>
             </div>
             <div className="value-item">
-              <span className="value-index">B</span>
-              <span>Practical with technology</span>
+              <span className="value-index">02</span>
+              <span>APIs &amp; integrations</span>
             </div>
             <div className="value-item">
-              <span className="value-index">C</span>
-              <span>Focused on people</span>
+              <span className="value-index">03</span>
+              <span>Practical product thinking</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="projects-section" id="projects">
+          <div className="section-shell">
+            <div className="section-kicker">
+              <span>02 / SELECTED PROJECTS</span>
+              <span className="kicker-rule" />
+              <span>A FEW THINGS I&apos;VE BUILT</span>
+            </div>
+            <div className="projects-heading">
+              <h2>
+                A few things
+                <br />
+                <span>I&apos;ve built.</span>
+              </h2>
+              <p>
+                Different products, same focus: useful features, clear
+                workflows, and dependable implementation.
+              </p>
+            </div>
+            <article className="project-featured">
+              <div className="project-featured-main">
+                <div className="project-card-top">
+                  <span className="project-number">{projects[0].number}</span>
+                  <span className="project-category">{projects[0].category}</span>
+                  <span className="project-role">{projects[0].role}</span>
+                </div>
+                <h3>{projects[0].title}</h3>
+                <p>{projects[0].description}</p>
+                <ul className="project-stack" aria-label={`${projects[0].title} technologies`}>
+                  {projects[0].stack.map((technology) => (
+                    <li key={technology}>{technology}</li>
+                  ))}
+                </ul>
+              </div>
+              <aside className="project-metrics" aria-label="Project results">
+                <div>
+                  <strong>146K+</strong>
+                  <span>member &amp; chapter records checked</span>
+                </div>
+                <div>
+                  <strong>26 issues</strong>
+                  <span>1,670 pages processed in a client batch</span>
+                </div>
+                <div>
+                  <strong>440+</strong>
+                  <span>automated tests written</span>
+                </div>
+              </aside>
+            </article>
+            <div className="projects-grid">
+              {projects.slice(1).map((project) => (
+                <article className="project-card" key={project.number}>
+                  <div className="project-card-top">
+                    <span className="project-number">{project.number}</span>
+                    <span className="project-category">{project.category}</span>
+                    <span className="project-role">{project.role}</span>
+                  </div>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  {project.link && (
+                    <a
+                      className="project-link"
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {project.linkLabel} <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
+                  <ul className="project-stack" aria-label={`${project.title} technologies`}>
+                    {project.stack.map((technology) => (
+                      <li key={technology}>{technology}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -210,7 +381,7 @@ export default function Home() {
         <section className="focus-section" id="focus">
           <div className="section-shell">
             <div className="section-kicker section-kicker--light">
-              <span>02 / WHAT I DO</span>
+              <span>03 / WHAT I DO</span>
               <span className="kicker-rule" />
               <span>THREE CONNECTED PERSPECTIVES</span>
             </div>
@@ -270,16 +441,12 @@ export default function Home() {
                 </article>
               ))}
             </div>
-            <p className="focus-footnote">
-              Specific projects, technologies, and outcomes will be added as
-              your experience details are ready.
-            </p>
           </div>
         </section>
 
         <section className="approach-section section-shell" id="approach">
           <div className="section-kicker">
-            <span>03 / HOW I THINK</span>
+            <span>04 / HOW I THINK</span>
             <span className="kicker-rule" />
             <span>A SIMPLE, HUMAN APPROACH</span>
           </div>
@@ -314,20 +481,19 @@ export default function Home() {
         <section className="contact-section" id="contact">
           <div className="contact-inner section-shell">
             <div className="contact-kicker">
-              <span className="status-dot" /> 04 / NEXT CHAPTER
+              <span className="status-dot" /> 05 / PROJECTS
             </div>
             <h2>
-              Have a good
+              Want to see
               <br />
-              <span>problem to solve?</span>
+              <span>more of my work?</span>
             </h2>
             <p>
-              I&apos;d love to hear what you&apos;re working on. Contact and
-              profile details can be added here when you&apos;re ready to share
-              them.
+              Take a closer look at the projects I&apos;ve worked on, including
+              a live e-commerce store.
             </p>
-            <a className="button button-contact" href="#home">
-              Back to the top <span aria-hidden="true">↑</span>
+            <a className="button button-contact" href="#projects">
+              Browse projects <span aria-hidden="true">↗</span>
             </a>
             <span className="contact-orbit contact-orbit--one" aria-hidden="true" />
             <span className="contact-orbit contact-orbit--two" aria-hidden="true" />
@@ -338,9 +504,25 @@ export default function Home() {
       </main>
 
       <footer className="site-footer">
-        <a className="footer-brand" href="#home">ARUN KUMAR<span>.</span></a>
-        <p>Built around good ideas and useful software.</p>
-        <a href="#home">BACK TO TOP ↑</a>
+        <div className="footer-main">
+          <div className="footer-about">
+            <a className="footer-brand" href="#home">ARUN KUMAR<span>.</span></a>
+            <p>Full-stack developer building web products from idea to release.</p>
+          </div>
+          <nav className="footer-nav" aria-label="Footer navigation">
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#focus">What I do</a>
+            <a href="#approach">Approach</a>
+          </nav>
+          <a className="footer-live-link" href="https://artroombyartjazz.com" target="_blank" rel="noreferrer">
+            Live project: Artroom by Artjazz <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} Arun Kumar</span>
+          <a href="#home">Back to top ↑</a>
+        </div>
       </footer>
     </>
   );

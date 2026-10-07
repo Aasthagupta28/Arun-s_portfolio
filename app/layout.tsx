@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Arun Kumar | Full-Stack Developer",
   description:
-    "Arun Kumar is a full-stack developer with experience in workflow automation and healthcare domain knowledge.",
+    "Arun Kumar is a full-stack developer building AI tools, e-commerce platforms, and workflow-focused web applications.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
