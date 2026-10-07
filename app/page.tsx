@@ -53,7 +53,14 @@ const projects = [
     role: "Freelance · Full-stack developer",
     title: "AI Document Metadata Pipeline",
     description:
-      "I built a pipeline that reads OCR magazine PDFs and extracts names, chapters, page titles, and subjects. It checks results against a client authority list of 146K+ member and chapter records, and flags uncertain matches for review. Batch processing can resume after crashes or OpenAI quota limits, with cost estimates, pre-run checks, QA reports, and one-click ZIP downloads.",
+      "A client-facing archive workflow for turning OCR'd magazine issues into structured, reviewable metadata. I built the web platform and processing pipeline, from project-specific authority data through batch runs and downloadable QA outputs.",
+    highlights: [
+      "Extracts names, chapters, page titles, and subjects from OCR magazine PDFs, then checks them against 146K+ member and chapter records.",
+      "Flags uncertain matches for human review instead of silently accepting weak results.",
+      "Processes hundreds of PDFs with concurrent jobs and crash-safe resume; quota exhaustion stops cleanly so unfinished issues can be resumed.",
+      "Includes 10 pre-run blocker checks, a usage-based cost estimate, per-PDF outputs, combined QA and usage reports, and one-click ZIP export.",
+      "Stamped outputs with processor/config fingerprints for reproducibility; validated a 26-issue, 1,670-page client batch and wrote 440+ automated tests.",
+    ],
     stack: ["Python", "FastAPI", "React", "OpenAI", "PyMuPDF", "pandas", "AWS"],
   },
   {
@@ -62,7 +69,15 @@ const projects = [
     role: "Full-stack contribution",
     title: "ONE WORLD 3D",
     description:
-      "Contributed to a platform that turns written stories into cinematic reels. My work included story parsing, AI image, voice and video integrations, studio workflows, billing, role-based access, background jobs, and 3D assets.",
+      "Contributed to a cinematic production platform that takes a written story through AI-assisted planning and media generation. Work covered backend workflows and the creator-facing studio, alongside integrations with multiple AI and billing providers.",
+    highlights: [
+      "Built story parsing flows to identify characters, locations, scenes, and shots from scripts.",
+      "Integrated OpenAI and Gemini for language tasks, ElevenLabs for voice, and fal.ai for video generation.",
+      "Worked on studio agents for production planning, budget, continuity, and sound-effects workflows.",
+      "Contributed to 3D asset generation through Meshy AI, role-based permissions, Stripe/PayPal billing, and Celery/Redis jobs with S3 media storage.",
+    ],
+    link: "https://oneworld3d.ai/",
+    linkLabel: "Visit ONE WORLD 3D",
     stack: [
       "Django",
       "React",
@@ -86,7 +101,13 @@ const projects = [
     role: "Full-stack developer",
     title: "Artroom by Artjazz",
     description:
-      "Built an online art store for a US-based artist, including the storefront and admin panel. Features include product galleries, wishlist, cart, PayPal payments, image uploads, and a “Price on Request” option.",
+      "Built a production e-commerce site for a US-based artist, covering the customer storefront and the admin tools used to manage products and collections. The live store supports direct purchases as well as enquiries for selected artwork.",
+    highlights: [
+      "Created a responsive gallery, product pages, wishlist, and shopping cart.",
+      "Integrated live PayPal checkout and AWS S3 image uploads.",
+      "Added a “Price on Request” option and email-lead flow for artwork enquiries.",
+      "Deployed a FastAPI/PostgreSQL backend on AWS EC2 with RDS and a Next.js 15 frontend on Hostinger.",
+    ],
     stack: [
       "Next.js",
       "TypeScript",
@@ -107,7 +128,15 @@ const projects = [
     role: "Full-stack developer",
     title: "AgencyFlow CRM",
     description:
-      "Built a multi-tenant CRM for Indian digital agencies to manage leads, deals, clients, projects, GST invoices, and team workflows. Includes kanban pipelines, PDF invoices, role-based access, and a revenue dashboard.",
+      "Built a multi-tenant CRM for Indian digital agencies, bringing sales, client delivery, finance, and team operations into one workspace. The interface connects day-to-day pipeline work with practical finance and owner reporting.",
+    highlights: [
+      "Organized leads, deals, clients, and projects with kanban-based pipelines.",
+      "Built GST invoicing with PDF generation and finance views for revenue, expenses, and profit.",
+      "Added role-based access and team workflows across client and internal operations.",
+      "Focused on reliable API integration, useful error handling, and clear confirmation flows.",
+    ],
+    link: "https://agencyflow-frontend-lac.vercel.app/",
+    linkLabel: "Visit AgencyFlow",
     stack: ["Next.js", "React", "TypeScript", "FastAPI", "PostgreSQL"],
   },
   {
@@ -116,17 +145,31 @@ const projects = [
     role: "Full-stack developer",
     title: "Smart HR Management System",
     description:
-      "Developed a role-based HR dashboard to manage employees, departments, attendance, leave, recruitment, payroll structures, and company announcements.",
+      "Developed a role-based HRMS dashboard to bring everyday people operations into one place, from employee records and attendance to leave, recruitment, and payroll structures.",
+    highlights: [
+      "Structured employee and department information for day-to-day administration.",
+      "Covered attendance, leave management, and recruitment workflows.",
+      "Included payroll structures and internal company announcements.",
+      "Built with a Next.js/React interface and Django APIs.",
+    ],
     stack: ["Next.js", "React", "Tailwind CSS", "Python", "Django"],
   },
   {
     number: "06",
     category: "E-COMMERCE",
     role: "Full-stack developer",
-    title: "Wooden Handicraft Store",
+    title: "Wildwood Carvings — Handicraft Store",
     description:
-      "Created a responsive online store for handcrafted wooden showpieces, with a Next.js and React storefront and a Django backend for product data and business logic.",
+      "Created a responsive online storefront for handcrafted wooden showpieces. The project pairs a product-focused browsing experience with a Django backend for catalog data and store logic.",
+    highlights: [
+      "Designed product browsing for a distinct, handcrafted catalog.",
+      "Built the storefront with Next.js, React, and Tailwind CSS.",
+      "Implemented Django backend functionality for product data and business rules.",
+      "Live site: Wildwood Carvings.",
+    ],
     stack: ["Next.js", "React", "Tailwind CSS", "Python", "Django"],
+    link: "https://www.wildwoodcarvings.com/",
+    linkLabel: "Visit Wildwood Carvings",
   },
 ];
 
@@ -141,6 +184,7 @@ export default function Home() {
         <nav className="site-nav" aria-label="Main navigation">
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
+          <a href="#experience">Experience</a>
           <a href="#focus">What I do</a>
           <a href="#approach">Approach</a>
         </nav>
@@ -233,7 +277,7 @@ export default function Home() {
             <span className="scroll-cue-line" />
             SCROLL TO EXPLORE
           </a>
-          <span className="hero-index" aria-hidden="true">01 — 05</span>
+          <span className="hero-index" aria-hidden="true">01 — 06</span>
         </section>
 
         <section className="intro-strip" aria-label="Areas of experience">
@@ -261,16 +305,18 @@ export default function Home() {
             </h2>
             <div className="about-copy">
               <p>
-                I&apos;m Arun, a full-stack developer. I work across frontend
-                and backend, and like seeing a feature through from the first
-                screen to the data and logic behind it.
+                I&apos;m Arun, a full-stack developer who enjoys turning a
+                client&apos;s idea into software they can actually use. I work
+                across frontend and backend, and stay involved from
+                understanding the requirement through implementation and
+                delivery.
               </p>
               <p>
-                My projects have included an AI-assisted archive tool, a
-                story-to-video production platform, e-commerce stores, an
-                agency CRM, and an HR system. Each has called for a different
-                mix of product work—from integrations and payments to
-                permissions, reporting, and reliable batch processing.
+                I&apos;ve handled client communication across multiple
+                projects—clarifying what is needed, sharing progress, and
+                incorporating feedback as the work takes shape. The projects
+                span an AI-assisted archive tool, e-commerce, agency
+                operations, HR, and a story-to-video platform.
               </p>
               <p>
                 I care about making software straightforward to use and
@@ -299,10 +345,65 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="experience-section" id="experience">
+          <div className="section-shell">
+            <div className="section-kicker">
+              <span>02 / CLIENT &amp; PROJECT EXPERIENCE</span>
+              <span className="kicker-rule" />
+              <span>FROM BRIEF TO DELIVERY</span>
+            </div>
+            <div className="experience-heading">
+              <h2>
+                Good work starts
+                <br />
+                <span>with listening.</span>
+              </h2>
+              <p>
+                I&apos;ve worked directly with clients across different
+                products—not just on code, but on understanding the brief,
+                communicating progress, and getting the finished work ready
+                for use.
+              </p>
+            </div>
+            <div className="experience-grid">
+              <article className="experience-card">
+                <span className="experience-number">01 / CLIENT COLLABORATION</span>
+                <h3>Clear communication, throughout</h3>
+                <p>
+                  Discuss requirements early, share progress, work through
+                  feedback, and keep expectations clear from the first
+                  conversation to handover.
+                </p>
+                <span className="experience-note">Freelance &amp; client projects</span>
+              </article>
+              <article className="experience-card">
+                <span className="experience-number">02 / END-TO-END DELIVERY</span>
+                <h3>Taking features beyond the screen</h3>
+                <p>
+                  Work across UI, APIs, data, third-party services, testing,
+                  and deployment—so the pieces come together as a usable
+                  product, not just a mock-up.
+                </p>
+                <span className="experience-note">Build · integrate · test · deliver</span>
+              </article>
+              <article className="experience-card">
+                <span className="experience-number">03 / DIFFERENT DOMAINS</span>
+                <h3>Adapting to the product</h3>
+                <p>
+                  Client work has ranged from archive metadata and online
+                  stores to agency operations, HR tools, and AI-assisted
+                  media production.
+                </p>
+                <span className="experience-note">Six projects featured below</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section className="projects-section" id="projects">
           <div className="section-shell">
             <div className="section-kicker">
-              <span>02 / SELECTED PROJECTS</span>
+              <span>03 / SELECTED PROJECTS</span>
               <span className="kicker-rule" />
               <span>A FEW THINGS I&apos;VE BUILT</span>
             </div>
@@ -314,7 +415,8 @@ export default function Home() {
               </h2>
               <p>
                 Different products, same focus: useful features, clear
-                workflows, and dependable implementation.
+                workflows, and dependable implementation. Here&apos;s what I
+                built, contributed, and delivered.
               </p>
             </div>
             <article className="project-featured">
@@ -326,6 +428,11 @@ export default function Home() {
                 </div>
                 <h3>{projects[0].title}</h3>
                 <p>{projects[0].description}</p>
+                <ul className="project-highlights" aria-label={`${projects[0].title} key work`}>
+                  {projects[0].highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
                 <ul className="project-stack" aria-label={`${projects[0].title} technologies`}>
                   {projects[0].stack.map((technology) => (
                     <li key={technology}>{technology}</li>
@@ -368,16 +475,11 @@ export default function Home() {
                   </div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
-                  {project.link && (
-                    <a
-                      className="project-link"
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {project.linkLabel} <span aria-hidden="true">↗</span>
-                    </a>
-                  )}
+                  <ul className="project-highlights" aria-label={`${project.title} key work`}>
+                    {project.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
                   <ul className="project-stack" aria-label={`${project.title} technologies`}>
                     {project.stack.map((technology) => (
                       <li key={technology}>{technology}</li>
@@ -403,7 +505,7 @@ export default function Home() {
         <section className="focus-section" id="focus">
           <div className="section-shell">
             <div className="section-kicker section-kicker--light">
-              <span>03 / WHAT I DO</span>
+              <span>04 / WHAT I DO</span>
               <span className="kicker-rule" />
               <span>THREE CONNECTED PERSPECTIVES</span>
             </div>
@@ -468,7 +570,7 @@ export default function Home() {
 
         <section className="approach-section section-shell" id="approach">
           <div className="section-kicker">
-            <span>04 / HOW I THINK</span>
+            <span>05 / HOW I THINK</span>
             <span className="kicker-rule" />
             <span>A SIMPLE, HUMAN APPROACH</span>
           </div>
@@ -503,19 +605,25 @@ export default function Home() {
         <section className="contact-section" id="contact">
           <div className="contact-inner section-shell">
             <div className="contact-kicker">
-              <span className="status-dot" /> 05 / PROJECTS
+              <span className="status-dot" /> 06 / GET IN TOUCH
             </div>
             <h2>
-              Want to see
+              Have a project
               <br />
-              <span>more of my work?</span>
+              <span>in mind?</span>
             </h2>
             <p>
-              Take a closer look at the projects I&apos;ve worked on, including
-              a live e-commerce store.
+              Tell me a little about what you&apos;re working on. Email me and
+              I&apos;ll get back to you.
             </p>
-            <a className="button button-contact" href="#projects">
-              Browse projects <span aria-hidden="true">↗</span>
+            <a
+              className="button button-contact"
+              href="mailto:arunkumarbhardwaj1999@gmail.com?subject=Project%20inquiry"
+            >
+              Send me an email <span aria-hidden="true">↗</span>
+            </a>
+            <a className="contact-email" href="mailto:arunkumarbhardwaj1999@gmail.com">
+              arunkumarbhardwaj1999@gmail.com
             </a>
             <span className="contact-orbit contact-orbit--one" aria-hidden="true" />
             <span className="contact-orbit contact-orbit--two" aria-hidden="true" />
@@ -534,6 +642,7 @@ export default function Home() {
           <nav className="footer-nav" aria-label="Footer navigation">
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
+            <a href="#experience">Experience</a>
             <a href="#focus">What I do</a>
             <a href="#approach">Approach</a>
           </nav>
