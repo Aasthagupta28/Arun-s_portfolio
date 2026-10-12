@@ -50,74 +50,52 @@ const projects = [
   {
     number: "01",
     category: "AI & DOCUMENTS",
-    role: "Freelance · Full-stack developer",
     title: "AI Document Metadata Pipeline",
     description:
-      "A client-facing archive workflow for turning OCR'd magazine issues into structured, reviewable metadata. I built the web platform and processing pipeline, from project-specific authority data through batch runs and downloadable QA outputs.",
+      "A web platform that turns scanned magazine issues into structured metadata, with tools to review and export results.",
     highlights: [
-      "Extracts names, chapters, page titles, and subjects from OCR magazine PDFs, then checks them against 146K+ member and chapter records.",
-      "Flags uncertain matches for human review instead of silently accepting weak results.",
-      "Processes hundreds of PDFs with concurrent jobs and crash-safe resume; quota exhaustion stops cleanly so unfinished issues can be resumed.",
-      "Includes 10 pre-run blocker checks, a usage-based cost estimate, per-PDF outputs, combined QA and usage reports, and one-click ZIP export.",
-      "Stamped outputs with processor/config fingerprints for reproducibility; validated a 26-issue, 1,670-page client batch and wrote 440+ automated tests.",
+      "Checks extracted names and subjects against 146K+ records and flags uncertain matches for review.",
+      "Validated a 26-issue batch and added 440+ automated tests.",
     ],
-    stack: ["Python", "FastAPI", "React", "OpenAI", "PyMuPDF", "pandas", "AWS"],
+    stack: ["Python", "FastAPI", "React", "OpenAI", "AWS"],
   },
   {
     number: "02",
     category: "FILM & MEDIA",
-    role: "Full-stack contribution",
     title: "ONE WORLD 3D",
     description:
-      "Contributed to a cinematic production platform that takes a written story through AI-assisted planning and media generation. Work covered backend workflows and the creator-facing studio, alongside integrations with multiple AI and billing providers.",
+      "Contributed to a platform for turning written stories into AI-assisted production plans and media.",
     highlights: [
-      "Built story parsing flows to identify characters, locations, scenes, and shots from scripts.",
-      "Integrated OpenAI and Gemini for language tasks, ElevenLabs for voice, and fal.ai for video generation.",
-      "Worked on studio agents for production planning, budget, continuity, and sound-effects workflows.",
-      "Contributed to 3D asset generation through Meshy AI, role-based permissions, Stripe/PayPal billing, and Celery/Redis jobs with S3 media storage.",
+      "Built script parsing and production-planning workflows.",
+      "Integrated AI services for text, voice, video, and 3D assets.",
     ],
     link: "https://oneworld3d.ai/",
     linkLabel: "Visit ONE WORLD 3D",
     stack: [
       "Django",
       "React",
-      "Redux",
       "Celery",
-      "Redis",
-      "MySQL",
       "OpenAI",
-      "Gemini",
-      "ElevenLabs",
       "fal.ai",
-      "Meshy AI",
-      "Stripe",
-      "PayPal",
-      "AWS S3",
     ],
   },
   {
     number: "03",
     category: "E-COMMERCE",
-    role: "Full-stack developer",
     title: "Artroom by Artjazz",
     description:
-      "Built a production e-commerce site for a US-based artist, covering the customer storefront and the admin tools used to manage products and collections. The live store supports direct purchases as well as enquiries for selected artwork.",
+      "Built an online art store with a customer storefront and product-management tools.",
     highlights: [
-      "Created a responsive gallery, product pages, wishlist, and shopping cart.",
-      "Integrated live PayPal checkout and AWS S3 image uploads.",
-      "Added a “Price on Request” option and email-lead flow for artwork enquiries.",
-      "Deployed a FastAPI/PostgreSQL backend on AWS EC2 with RDS and a Next.js 15 frontend on Hostinger.",
+      "Added a responsive gallery, wishlist, cart, and PayPal checkout.",
+      "Built artwork enquiries and image uploads.",
     ],
     stack: [
       "Next.js",
       "TypeScript",
       "FastAPI",
       "PostgreSQL",
-      "AWS EC2",
       "AWS S3",
       "PayPal",
-      "SQLAlchemy",
-      "Nginx",
     ],
     link: "https://artroombyartjazz.com",
     linkLabel: "Visit live store",
@@ -125,15 +103,12 @@ const projects = [
   {
     number: "04",
     category: "CRM & AGENCY TOOLS",
-    role: "Full-stack developer",
     title: "AgencyFlow CRM",
     description:
-      "Built a multi-tenant CRM for Indian digital agencies, bringing sales, client delivery, finance, and team operations into one workspace. The interface connects day-to-day pipeline work with practical finance and owner reporting.",
+      "Built a CRM that brings agency sales, client delivery, finance, and team operations into one workspace.",
     highlights: [
-      "Organized leads, deals, clients, and projects with kanban-based pipelines.",
-      "Built GST invoicing with PDF generation and finance views for revenue, expenses, and profit.",
-      "Added role-based access and team workflows across client and internal operations.",
-      "Focused on reliable API integration, useful error handling, and clear confirmation flows.",
+      "Added kanban pipelines for leads, deals, clients, and projects.",
+      "Built GST invoicing and finance reporting.",
     ],
     link: "https://agencyflow-frontend-lac.vercel.app/",
     linkLabel: "Visit AgencyFlow",
@@ -142,34 +117,52 @@ const projects = [
   {
     number: "05",
     category: "HR & ADMIN",
-    role: "Full-stack developer",
     title: "Smart HR Management System",
     description:
-      "Developed a role-based HRMS dashboard to bring everyday people operations into one place, from employee records and attendance to leave, recruitment, and payroll structures.",
+      "Developed a role-based dashboard for everyday employee and HR operations.",
     highlights: [
-      "Structured employee and department information for day-to-day administration.",
-      "Covered attendance, leave management, and recruitment workflows.",
-      "Included payroll structures and internal company announcements.",
-      "Built with a Next.js/React interface and Django APIs.",
+      "Covers employee records, attendance, leave, recruitment, and payroll.",
+      "Built with Next.js, React, and Django APIs.",
     ],
     stack: ["Next.js", "React", "Tailwind CSS", "Python", "Django"],
   },
   {
     number: "06",
     category: "E-COMMERCE",
-    role: "Full-stack developer",
     title: "Wildwood Carvings — Handicraft Store",
     description:
-      "Created a responsive online storefront for handcrafted wooden showpieces. The project pairs a product-focused browsing experience with a Django backend for catalog data and store logic.",
+      "Created an online storefront for handcrafted wooden showpieces.",
     highlights: [
-      "Designed product browsing for a distinct, handcrafted catalog.",
-      "Built the storefront with Next.js, React, and Tailwind CSS.",
-      "Implemented Django backend functionality for product data and business rules.",
-      "Live site: Wildwood Carvings.",
+      "Built product browsing with Next.js and Tailwind CSS.",
+      "Used Django for product data and store logic.",
     ],
     stack: ["Next.js", "React", "Tailwind CSS", "Python", "Django"],
     link: "https://www.wildwoodcarvings.com/",
     linkLabel: "Visit Wildwood Carvings",
+  },
+  {
+    number: "07",
+    category: "HEALTHCARE & DATA",
+    title: "Batch Patient Management Loader",
+    description:
+      "Improved a healthcare service that validates patient files and delivers processing results.",
+    highlights: [
+      "Aligned 25+ processing rules with Oracle, fixing file status, duplicate checks, and concurrent loads.",
+      "Corrected notifications and SFTP retries, and added 22 unit tests.",
+    ],
+    stack: ["Python", "FastAPI", "PostgreSQL", "Kafka", "AWS S3", "Elasticsearch"],
+  },
+  {
+    number: "08",
+    category: "HEALTHCARE & INTEGRATIONS",
+    title: "License Management Sync Service",
+    description:
+      "Modernized a legacy PHP and Oracle system into a Python service that syncs contract, practice, and license data between an ERP and healthcare platform.",
+    highlights: [
+      "Reverse-engineered and verified a 48-table PostgreSQL schema with no existing DDL.",
+      "Rebuilt sync workflows and added API-key security, with 135 tests at 99% coverage.",
+    ],
+    stack: ["Python", "FastAPI", "PostgreSQL", "Alembic", "pytest"],
   },
 ];
 
@@ -185,6 +178,7 @@ export default function Home() {
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
           <a href="#focus">What I do</a>
           <a href="#approach">Approach</a>
         </nav>
@@ -202,14 +196,14 @@ export default function Home() {
               AUTOMATION
             </p>
             <h1>
-              Thoughtful code.
-              <br />
-              <span className="headline-accent">Better</span> workflows.
+              Arun Kumar
             </h1>
+            <p className="hero-tagline">
+              Thoughtful code. <span>Better workflows.</span>
+            </p>
             <p className="hero-description">
-              I&apos;m Arun Kumar—a full-stack developer working across
-              automation and healthcare. I turn complex workflows into
-              thoughtful, useful digital experiences.
+              I build full-stack web applications, APIs, and automation that
+              make complex workflows easier to use.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#projects">
@@ -236,59 +230,37 @@ export default function Home() {
             <div className="art-crosshair art-crosshair--two" />
             <div className="workflow-card">
               <div className="workflow-topline">
-                <span>WORKFLOW / 001</span>
-                <span className="workflow-live"><i /> IN MOTION</span>
+                <span>HOW I WORK</span>
               </div>
               <div className="workflow-flow">
                 <div className="workflow-node workflow-node--start">
-                  <span className="node-icon node-icon--spark">✳</span>
+                  <span className="node-icon node-icon--spark" aria-hidden="true">✳</span>
                   <span>Input</span>
                 </div>
                 <span className="flow-connector"><i /></span>
                 <div className="workflow-node workflow-node--active">
-                  <span className="node-icon node-icon--gear">◈</span>
+                  <span className="node-icon node-icon--gear" aria-hidden="true">◈</span>
                   <span>Automate</span>
                 </div>
                 <span className="flow-connector"><i /></span>
                 <div className="workflow-node workflow-node--end">
-                  <span className="node-icon node-icon--check">✓</span>
+                  <span className="node-icon node-icon--check" aria-hidden="true">✓</span>
                   <span>Done</span>
                 </div>
               </div>
               <div className="workflow-footer">
                 <span>LESS REPETITION</span>
-                <span className="footer-signal"><i /><i /><i /><i /><i /></span>
                 <span>MORE FLOW</span>
               </div>
             </div>
             <div className="floating-label floating-label--top">
-              <span className="label-symbol">↗</span>
-              <span>Human-first<br />engineering</span>
+              <span>Human-first engineering</span>
             </div>
             <div className="floating-label floating-label--bottom">
-              <span className="label-pulse" />
               <span>Ideas into systems</span>
             </div>
-            <span className="art-coordinate art-coordinate--one">26° / 73°</span>
-            <span className="art-coordinate art-coordinate--two">AK—01</span>
           </div>
 
-          <a className="scroll-cue" href="#about">
-            <span className="scroll-cue-line" />
-            SCROLL TO EXPLORE
-          </a>
-          <span className="hero-index" aria-hidden="true">01 — 06</span>
-        </section>
-
-        <section className="intro-strip" aria-label="Areas of experience">
-          <div className="intro-strip-inner">
-            <span>THE SWEET SPOT</span>
-            <p>
-              <b>Software</b> <i>×</i> <b>Automation</b> <i>×</i>{" "}
-              <b>Healthcare</b>
-            </p>
-            <span className="strip-caption">CONNECTED BY GOOD ENGINEERING</span>
-          </div>
         </section>
 
         <section className="about-section section-shell" id="about">
@@ -305,24 +277,13 @@ export default function Home() {
             </h2>
             <div className="about-copy">
               <p>
-                I&apos;m Arun, a full-stack developer who enjoys turning a
-                client&apos;s idea into software they can actually use. I work
-                across frontend and backend, and stay involved from
-                understanding the requirement through implementation and
-                delivery.
+                I&apos;m Arun, a full-stack developer. I build practical
+                software across frontend, backend, APIs, and integrations.
               </p>
               <p>
-                I&apos;ve handled client communication across multiple
-                projects—clarifying what is needed, sharing progress, and
-                incorporating feedback as the work takes shape. The projects
-                span an AI-assisted archive tool, e-commerce, agency
-                operations, HR, and a story-to-video platform.
-              </p>
-              <p>
-                I care about making software straightforward to use and
-                dependable behind the scenes. That usually means understanding
-                the day-to-day workflow first, then building only what helps
-                move it forward.
+                My work includes healthcare systems, automation, and client
+                products. I focus on clear workflows and reliable,
+                easy-to-use solutions.
               </p>
               <a className="inline-link" href="#projects">
                 Explore my work <span aria-hidden="true">↘</span>
@@ -330,15 +291,15 @@ export default function Home() {
             </div>
           </div>
           <div className="about-values">
-            <div className="value-item">
+            <div className="value-item" data-reveal>
               <span className="value-index">01</span>
               <span>Frontend to backend</span>
             </div>
-            <div className="value-item">
+            <div className="value-item" data-reveal>
               <span className="value-index">02</span>
               <span>APIs &amp; integrations</span>
             </div>
-            <div className="value-item">
+            <div className="value-item" data-reveal>
               <span className="value-index">03</span>
               <span>Practical product thinking</span>
             </div>
@@ -348,54 +309,104 @@ export default function Home() {
         <section className="experience-section" id="experience">
           <div className="section-shell">
             <div className="section-kicker">
-              <span>02 / CLIENT &amp; PROJECT EXPERIENCE</span>
+              <span>02 / EXPERIENCE</span>
               <span className="kicker-rule" />
-              <span>FROM BRIEF TO DELIVERY</span>
+              <span>PROFESSIONAL EXPERIENCE</span>
             </div>
             <div className="experience-heading">
               <h2>
-                Good work starts
+                Where I&apos;ve
                 <br />
-                <span>with listening.</span>
+                <span>worked.</span>
               </h2>
               <p>
-                I&apos;ve worked directly with clients across different
-                products—not just on code, but on understanding the brief,
-                communicating progress, and getting the finished work ready
-                for use.
+                Building web applications, APIs, and automation for client
+                products and businesses.
               </p>
             </div>
             <div className="experience-grid">
-              <article className="experience-card">
-                <span className="experience-number">01 / CLIENT COLLABORATION</span>
-                <h3>Clear communication, throughout</h3>
-                <p>
-                  Discuss requirements early, share progress, work through
-                  feedback, and keep expectations clear from the first
-                  conversation to handover.
-                </p>
-                <span className="experience-note">Freelance &amp; client projects</span>
+              <article className="experience-card experience-card--current" data-reveal>
+                <div className="experience-card-top">
+                  <span className="experience-period">Aug 2025 — Present · Remote</span>
+                  <span className="experience-status">Current role</span>
+                </div>
+                <div className="experience-details">
+                  <h3>Python Backend &amp; AI Automation Engineer</h3>
+                  <p className="experience-company">Orbantis Technologies</p>
+                  <p>
+                    Build APIs, AI automations, PostgreSQL databases, and AWS
+                    deployments for client products.
+                  </p>
+                </div>
               </article>
-              <article className="experience-card">
-                <span className="experience-number">02 / END-TO-END DELIVERY</span>
-                <h3>Taking features beyond the screen</h3>
-                <p>
-                  Work across UI, APIs, data, third-party services, testing,
-                  and deployment—so the pieces come together as a usable
-                  product, not just a mock-up.
-                </p>
-                <span className="experience-note">Build · integrate · test · deliver</span>
+              <article className="experience-card" data-reveal>
+                <div className="experience-card-top">
+                  <span className="experience-period">Oct 2024 — Aug 2025 · On-site</span>
+                </div>
+                <div className="experience-details">
+                  <h3>Python Developer</h3>
+                  <p className="experience-company">Nath Outsourcing Solutions Pvt. Ltd.</p>
+                  <p>
+                    Developed Django REST APIs and automation tools, connecting
+                    React apps to backend services.
+                  </p>
+                </div>
               </article>
-              <article className="experience-card">
-                <span className="experience-number">03 / DIFFERENT DOMAINS</span>
-                <h3>Adapting to the product</h3>
-                <p>
-                  Client work has ranged from archive metadata and online
-                  stores to agency operations, HR tools, and AI-assisted
-                  media production.
-                </p>
-                <span className="experience-note">Six projects featured below</span>
+              <article className="experience-card" data-reveal>
+                <div className="experience-card-top">
+                  <span className="experience-period">Aug 2023 — Sep 2024 · On-site</span>
+                </div>
+                <div className="experience-details">
+                  <h3>Python Developer</h3>
+                  <p className="experience-company">Vqcodes Software Solutions LLP</p>
+                  <p>
+                    Built Django and React applications, REST APIs, and
+                    automation; maintained AWS and Heroku deployments.
+                  </p>
+                </div>
               </article>
+              <article className="experience-card" data-reveal>
+                <div className="experience-card-top">
+                  <span className="experience-period">Aug 2021 — Jul 2023 · Remote</span>
+                </div>
+                <div className="experience-details">
+                  <h3>Freelance Python Developer</h3>
+                  <p className="experience-company">Self-employed</p>
+                  <p>
+                    Created Django apps, REST APIs, web scrapers, and browser
+                    automation for small businesses.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div className="education-block" id="education">
+              <div className="education-heading">
+                <h3>Education</h3>
+              </div>
+              <div className="education-grid">
+                <article className="education-card" data-reveal>
+                  <span className="experience-period">Aug 2019 — Aug 2021</span>
+                  <div className="education-card-body">
+                    <span className="education-degree-mark" aria-hidden="true">MCA</span>
+                    <div>
+                      <h4>Master of Computer Applications</h4>
+                      <p>Himachal Pradesh Technical University</p>
+                      <span className="education-result">First Division</span>
+                    </div>
+                  </div>
+                </article>
+                <article className="education-card" data-reveal>
+                  <span className="experience-period">Aug 2016 — Aug 2019</span>
+                  <div className="education-card-body">
+                    <span className="education-degree-mark" aria-hidden="true">BCA</span>
+                    <div>
+                      <h4>Bachelor of Computer Applications</h4>
+                      <p>Himachal Pradesh University</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
             </div>
           </div>
         </section>
@@ -419,12 +430,10 @@ export default function Home() {
                 built, contributed, and delivered.
               </p>
             </div>
-            <article className="project-featured">
+            <article className="project-featured" data-reveal>
               <div className="project-featured-main">
                 <div className="project-card-top">
-                  <span className="project-number">{projects[0].number}</span>
                   <span className="project-category">{projects[0].category}</span>
-                  <span className="project-role">{projects[0].role}</span>
                 </div>
                 <h3>{projects[0].title}</h3>
                 <p>{projects[0].description}</p>
@@ -438,16 +447,6 @@ export default function Home() {
                     <li key={technology}>{technology}</li>
                   ))}
                 </ul>
-                <div className="project-ctas">
-                  {projects[0].link ? (
-                    <a className="project-cta project-cta--primary" href={projects[0].link} target="_blank" rel="noreferrer">
-                      View live <span aria-hidden="true">↗</span>
-                    </a>
-                  ) : null}
-                  <a className="project-cta project-cta--outline" href="#contact">
-                    Discuss a similar project
-                  </a>
-                </div>
               </div>
               <aside className="project-metrics" aria-label="Project results">
                 <div>
@@ -467,11 +466,9 @@ export default function Home() {
             </article>
             <div className="projects-grid">
               {projects.slice(1).map((project) => (
-                <article className="project-card" key={project.number}>
+                <article className="project-card" key={project.number} data-reveal>
                   <div className="project-card-top">
-                    <span className="project-number">{project.number}</span>
                     <span className="project-category">{project.category}</span>
-                    <span className="project-role">{project.role}</span>
                   </div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
@@ -485,17 +482,13 @@ export default function Home() {
                       <li key={technology}>{technology}</li>
                     ))}
                   </ul>
-                  <div className="project-card-footer">
-                    {project.link ? (
+                  {project.link ? (
+                    <div className="project-card-footer">
                       <a className="button button-sm" href={project.link} target="_blank" rel="noreferrer">
                         {project.linkLabel ?? 'View live'} <span aria-hidden="true">↗</span>
                       </a>
-                    ) : (
-                      <a className="button button-sm button-outline" href="#contact">
-                        Discuss a similar project
-                      </a>
-                    )}
-                  </div>
+                    </div>
+                  ) : null}
                 </article>
               ))}
             </div>
@@ -523,7 +516,7 @@ export default function Home() {
             </div>
             <div className="focus-grid">
               {focusAreas.map((area) => (
-                <article className={`focus-card ${area.className}`} key={area.number}>
+                <article className={`focus-card ${area.className}`} key={area.number} data-reveal>
                   <div className="focus-card-top">
                     <span>{area.number} / FOCUS AREA</span>
                     <span className="card-arrow" aria-hidden="true">↗</span>
@@ -589,7 +582,7 @@ export default function Home() {
             </div>
             <div className="principle-list">
               {principles.map((principle) => (
-                <article className="principle-row" key={principle.number}>
+                <article className="principle-row" key={principle.number} data-reveal>
                   <span className="principle-number">{principle.number}</span>
                   <div>
                     <h3>{principle.title}</h3>
@@ -625,6 +618,14 @@ export default function Home() {
             <a className="contact-email" href="mailto:arunkumarbhardwaj1999@gmail.com">
               arunkumarbhardwaj1999@gmail.com
             </a>
+            <nav className="social-links" aria-label="Social profiles">
+              <a href="https://github.com/arunkumarbhardwaj1999" target="_blank" rel="noreferrer">
+                GitHub <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://www.linkedin.com/in/arunkumarbhardwaj1999/" target="_blank" rel="noreferrer">
+                LinkedIn <span aria-hidden="true">↗</span>
+              </a>
+            </nav>
             <span className="contact-orbit contact-orbit--one" aria-hidden="true" />
             <span className="contact-orbit contact-orbit--two" aria-hidden="true" />
             <span className="contact-spark contact-spark--one" aria-hidden="true">✳</span>
@@ -643,12 +644,10 @@ export default function Home() {
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
             <a href="#focus">What I do</a>
             <a href="#approach">Approach</a>
           </nav>
-          <a className="footer-live-link" href="https://artroombyartjazz.com" target="_blank" rel="noreferrer">
-            Live project: Artroom by Artjazz <span aria-hidden="true">↗</span>
-          </a>
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Arun Kumar</span>
