@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import ScrollReveal from "./scroll-reveal";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Arun Kumar | Full-Stack Developer",
   description:
-    "Arun Kumar is a full-stack developer building AI tools, e-commerce platforms, and workflow-focused web applications.",
+    "Arun Kumar is a full-stack developer building AI, e-commerce, CRM, healthcare, and automation products.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
       <body>
         {children}
         <ScrollReveal />

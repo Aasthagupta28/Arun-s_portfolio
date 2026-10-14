@@ -13,24 +13,30 @@ export default function ScrollReveal() {
 
     const elements = document.querySelectorAll<HTMLElement>(
       [
-        "[data-reveal]",
-        ".section-kicker",
-        ".about-grid > h2",
-        ".about-copy",
-        ".experience-heading",
-        ".projects-heading",
-        ".focus-heading",
-        ".approach-heading",
-        ".contact-inner > h2",
-        ".contact-inner > p",
-        ".contact-inner > .button-contact",
-        ".contact-inner > .contact-email",
-        ".contact-inner > .social-links",
+        "main section [data-reveal]",
+        "main section .section-kicker",
+        "main section h1",
+        "main section h2",
+        "main section h3",
+        "main section p",
+        "main section article",
+        "main section aside",
+        "main section .education-heading",
+        "main section .approach-list > article",
+        "main section .project-list-heading",
+        "main section .social-links a",
       ].join(", "),
     );
     if (elements.length === 0) return;
 
-    elements.forEach((element) => element.setAttribute("data-reveal", ""));
+    elements.forEach((element, index) => {
+      element.setAttribute("data-reveal", "");
+      element.style.setProperty("--reveal-delay", `${(index % 5) * 70}ms`);
+      const bounds = element.getBoundingClientRect();
+      if (bounds.top <= window.innerHeight + 240 && bounds.bottom >= -100) {
+        element.classList.add("is-visible");
+      }
+    });
     document.documentElement.classList.add("has-scroll-reveal");
 
     const observer = new IntersectionObserver(
@@ -42,7 +48,7 @@ export default function ScrollReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -36px 0px" },
+      { threshold: 0.01, rootMargin: "240px 0px 240px 0px" },
     );
 
     elements.forEach((element) => observer.observe(element));
