@@ -77,11 +77,6 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
               data-reveal
             >
               <div className="project-window">
-                <span className="window-dots" aria-hidden="true">
-                  <i />
-                  <i />
-                  <i />
-                </span>
                 <span className="project-domain">
                   {project.link ? getDomain(project.link) : "Private client project"}
                 </span>

@@ -23,11 +23,6 @@ function Gallery({ images, domain }: { images: ProjectImage[]; domain: string })
     <section className="modal-gallery modal-anim" style={step(5)} aria-label="Project screenshots">
       <div className="gallery-frame">
         <div className="gallery-bar">
-          <span className="window-dots" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
           <span className="gallery-url">{domain}</span>
           {count > 1 ? (
             <span className="gallery-count">
@@ -172,11 +167,6 @@ export default function ProjectModal({
           <div className="modal-scroll" ref={scrollRef} key={project.title}>
             <header className="modal-hero">
               <div className="modal-window modal-anim" style={step(0)}>
-                <span className="window-dots" aria-hidden="true">
-                  <i />
-                  <i />
-                  <i />
-                </span>
                 <span className="modal-domain">
                   {project.link ? getDomain(project.link) : "Private client project"}
                 </span>

@@ -39,7 +39,8 @@ export default function SiteHeader() {
     >
       <div className="container header-inner">
         <a className="logo" href="#home" aria-label="Arun Kumar, home" onClick={closeMenu}>
-          Arun<span>.</span>
+          <span className="logo-mark" aria-hidden="true">AK</span>
+          Arun Kumar
         </a>
 
         <nav className="site-nav" id="primary-navigation" aria-label="Main navigation">

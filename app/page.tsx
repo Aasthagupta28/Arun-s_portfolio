@@ -12,21 +12,49 @@ const stats = [
   { value: "440+", label: "Automated tests written" },
 ];
 
+function Icon({ children }: { children: ReactNode }) {
+  return (
+    <svg viewBox="0 0 32 32" width="36" height="36" fill="none" aria-hidden="true">
+      {children}
+    </svg>
+  );
+}
+
 const services = [
   {
-    icon: "⌘",
+    icon: (
+      <Icon>
+        <rect x="3" y="8" width="16" height="13" fill="currentColor" opacity="0.16" />
+        <rect x="9" y="4" width="20" height="15" stroke="currentColor" strokeWidth="1.6" />
+        <rect x="9" y="4" width="20" height="4" fill="currentColor" />
+        <path d="M13 14h10M13 17.5h6" stroke="currentColor" strokeWidth="1.5" />
+      </Icon>
+    ),
     title: "Full-stack web apps",
     description: "Fast, responsive products — from database and APIs to the interface.",
     tags: ["Next.js", "React", "FastAPI", "PostgreSQL"],
   },
   {
-    icon: "✦",
+    icon: (
+      <Icon>
+        <rect x="4" y="7" width="14" height="18" fill="currentColor" opacity="0.16" />
+        <rect x="10" y="3" width="14" height="18" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M14 9h6M14 13h6M14 17h4" stroke="currentColor" strokeWidth="1.5" />
+        <rect x="22" y="20" width="7" height="7" fill="currentColor" />
+      </Icon>
+    ),
     title: "AI & automation",
     description: "AI-powered document processing and workflows that save hours of manual work.",
     tags: ["Python", "OpenAI API", "Celery", "PyMuPDF"],
   },
   {
-    icon: "◎",
+    icon: (
+      <Icon>
+        <rect x="3" y="4" width="26" height="6" fill="currentColor" />
+        <rect x="3" y="13" width="26" height="6" fill="currentColor" opacity="0.55" />
+        <rect x="3" y="22" width="26" height="6" fill="currentColor" opacity="0.28" />
+      </Icon>
+    ),
     title: "Backend & integrations",
     description: "Reliable APIs, data pipelines, and healthcare system integrations.",
     tags: ["Django", "Kafka", "AWS", "pytest"],
@@ -100,22 +128,17 @@ const education = [
 ];
 
 function SectionHeading({
-  number,
   label,
   title,
   text,
 }: {
-  number: string;
   label: string;
-  title: ReactNode;
+  title: string;
   text?: string;
 }) {
   return (
     <div className="section-heading" data-reveal>
-      <span className="section-label">
-        <span className="section-number">{number}</span>
-        {label}
-      </span>
+      <span className="section-label">{label}</span>
       <h2>{title}</h2>
       {text ? <p>{text}</p> : null}
     </div>
@@ -125,11 +148,6 @@ function SectionHeading({
 function WindowBar({ label }: { label: string }) {
   return (
     <div className="window-bar">
-      <span className="window-dots" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-      </span>
       <span className="window-url">{label}</span>
     </div>
   );
@@ -141,7 +159,7 @@ function HeroShowcase() {
       <div className="window live-window">
         <WindowBar label="Live projects" />
         <ul className="live-list">
-          {liveProjects.map((project) => (
+          {liveProjects.map((project, index) => (
             <li key={project.title}>
               <a
                 href={project.link}
@@ -149,7 +167,9 @@ function HeroShowcase() {
                 rel="noreferrer"
                 aria-label={`Visit ${project.title} (opens in a new tab)`}
               >
-                <span className="live-dot" aria-hidden="true" />
+                <span className="live-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <span className="live-name">
                   <strong>{project.title}</strong>
                   <small>{getDomain(project.link)}</small>
@@ -192,12 +212,9 @@ export default function Home() {
 
       <main id="home">
         <section className="hero">
-          <div className="hero-grid" aria-hidden="true" />
           <div className="container hero-inner">
             <div className="hero-copy" data-reveal>
-              <span className="badge">
-                <span className="status-dot" /> Available for new projects
-              </span>
+              <span className="badge">Open for freelance and contract work</span>
               <p className="hero-hello">
                 Hi, I&apos;m <strong>Arun Kumar</strong> — Software Engineer
               </p>
@@ -237,18 +254,11 @@ export default function Home() {
 
         <section className="section" id="services">
           <div className="container">
-            <SectionHeading
-              number="01"
-              label="What I do"
-              title={<>How I can <em>help</em></>}
-            />
+            <SectionHeading label="What I do" title="How I can help" />
             <div className="services-grid">
-              {services.map((service, index) => (
+              {services.map((service) => (
                 <article className="card service-card" key={service.title} data-reveal>
-                  <div className="service-top">
-                    <span className="service-icon" aria-hidden="true">{service.icon}</span>
-                    <span className="service-index">0{index + 1}</span>
-                  </div>
+                  <span className="service-icon">{service.icon}</span>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <ul className="tags">
@@ -265,15 +275,14 @@ export default function Home() {
         <section className="section section-alt" id="projects">
           <div className="container">
             <SectionHeading
-              number="02"
               label="Projects"
-              title={<>Selected <em>work</em></>}
+              title="Selected work"
               text="Real products built for real clients."
             />
 
             <article className="featured" data-reveal>
               <div className="featured-main">
-                <span className="featured-badge">★ Featured project</span>
+                <span className="featured-badge">Featured project</span>
                 <p className="category">{featured.category}</p>
                 <h3>{featured.title}</h3>
                 <p className="featured-text">{featured.description}</p>
@@ -310,7 +319,7 @@ export default function Home() {
             <a className="project-cta" href="#contact" data-reveal>
               <div>
                 <h3>
-                  Want something <em>similar?</em>
+                  Want something similar?
                 </h3>
                 <p>Tell me about your idea and let&apos;s build it together.</p>
               </div>
@@ -323,11 +332,7 @@ export default function Home() {
 
         <section className="section" id="experience">
           <div className="container">
-            <SectionHeading
-              number="03"
-              label="Experience"
-              title={<>Where I&apos;ve <em>worked</em></>}
-            />
+            <SectionHeading label="Experience" title="Where I've worked" />
             <div className="experience-layout">
               <ol className="timeline">
                 {experience.map((job) => (
@@ -349,7 +354,7 @@ export default function Home() {
 
               <div className="education" id="education">
                 <h3 className="education-title">
-                  <span className="section-number">04</span> Education
+                  Education
                 </h3>
                 {education.map((item) => (
                   <article className="card education-card" key={item.degree} data-reveal>
@@ -370,11 +375,10 @@ export default function Home() {
           <div className="container">
             <div className="contact-box" data-reveal>
               <span className="section-label section-label--light">
-                <span className="section-number">05</span>
                 Contact
               </span>
               <h2>
-                Have a project in <em>mind?</em>
+                Have a project in mind?
               </h2>
               <p>Let&apos;s talk about how I can help you build it.</p>
               <a className="contact-email" href={`mailto:${EMAIL}?subject=Project%20inquiry`}>

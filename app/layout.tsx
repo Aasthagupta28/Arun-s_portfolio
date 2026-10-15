@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Source_Serif_4 } from "next/font/google";
 import ScrollReveal from "./scroll-reveal";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-serif",
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
   subsets: ["latin"],
-  weight: "400",
-  style: "italic",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
+      className={`${plexSans.variable} ${plexMono.variable} ${sourceSerif.variable}`}
       suppressHydrationWarning
     >
       <head>
