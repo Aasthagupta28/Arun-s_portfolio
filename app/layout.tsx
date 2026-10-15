@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Inter } from "next/font/google";
+import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google";
 import ScrollReveal from "./scroll-reveal";
 import "./globals.css";
 
@@ -13,6 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+});
+
 export const metadata: Metadata = {
   title: "Arun Kumar | Full-Stack Developer",
   description:
@@ -21,7 +28,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('has-scroll-reveal')",
+          }}
+        />
+      </head>
       <body>
         {children}
         <ScrollReveal />

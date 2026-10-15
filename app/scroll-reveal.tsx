@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+const SELECTOR = "[data-reveal]";
+
 export default function ScrollReveal() {
   useEffect(() => {
     if (
@@ -11,34 +13,9 @@ export default function ScrollReveal() {
       return;
     }
 
-    const elements = document.querySelectorAll<HTMLElement>(
-      [
-        "main section [data-reveal]",
-        "main section .section-kicker",
-        "main section h1",
-        "main section h2",
-        "main section h3",
-        "main section p",
-        "main section article",
-        "main section aside",
-        "main section .education-heading",
-        "main section .approach-list > article",
-        "main section .project-list-heading",
-        "main section .social-links a",
-      ].join(", "),
-    );
-    if (elements.length === 0) return;
-
-    elements.forEach((element, index) => {
-      element.setAttribute("data-reveal", "");
-      element.style.setProperty("--reveal-delay", `${(index % 5) * 70}ms`);
-      const bounds = element.getBoundingClientRect();
-      if (bounds.top <= window.innerHeight + 240 && bounds.bottom >= -100) {
-        element.classList.add("is-visible");
-      }
-    });
     document.documentElement.classList.add("has-scroll-reveal");
 
+    const tracked = new WeakSet<Element>();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -48,12 +25,40 @@ export default function ScrollReveal() {
           }
         });
       },
-      { threshold: 0.01, rootMargin: "240px 0px 240px 0px" },
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
     );
 
-    elements.forEach((element) => observer.observe(element));
+    const track = (element: HTMLElement) => {
+      if (tracked.has(element) || element.classList.contains("is-visible")) return;
+      tracked.add(element);
+
+      const siblings = element.parentElement
+        ? Array.from(element.parentElement.children).filter((child) => child.matches(SELECTOR))
+        : [];
+      const position = Math.max(siblings.indexOf(element), 0);
+      element.style.setProperty("--reveal-delay", `${Math.min(position, 5) * 110}ms`);
+      observer.observe(element);
+    };
+
+    const trackWithin = (root: Element | Document) => {
+      if (root instanceof HTMLElement && root.matches(SELECTOR)) track(root);
+      root.querySelectorAll<HTMLElement>(SELECTOR).forEach(track);
+    };
+
+    const frame = requestAnimationFrame(() => trackWithin(document));
+
+    const mutations = new MutationObserver((records) => {
+      records.forEach((record) => {
+        record.addedNodes.forEach((node) => {
+          if (node instanceof HTMLElement) trackWithin(node);
+        });
+      });
+    });
+    mutations.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      cancelAnimationFrame(frame);
+      mutations.disconnect();
       observer.disconnect();
       document.documentElement.classList.remove("has-scroll-reveal");
     };
