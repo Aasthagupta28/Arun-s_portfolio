@@ -2023,6 +2023,51 @@ h3 em {
   transform: none;
 }
 
+.has-scroll-reveal
+  :is(.hero-copy, .section-heading, .more-heading, .contact-box)[data-reveal]
+  > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease calc(var(--reveal-delay, 0ms) + 120ms + var(--child, 0) * 90ms),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)
+      calc(var(--reveal-delay, 0ms) + 120ms + var(--child, 0) * 90ms);
+}
+
+.has-scroll-reveal
+  :is(.hero-copy, .section-heading, .more-heading, .contact-box)[data-reveal].is-visible
+  > * {
+  opacity: 1;
+  transform: none;
+}
+
+.has-scroll-reveal .contact-box.is-visible > .contact-email:hover {
+  transform: translateY(-2px);
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+[data-reveal] > :nth-child(2) {
+  --child: 1;
+}
+
+[data-reveal] > :nth-child(3) {
+  --child: 2;
+}
+
+[data-reveal] > :nth-child(4) {
+  --child: 3;
+}
+
+[data-reveal] > :nth-child(5) {
+  --child: 4;
+}
+
+[data-reveal] > :nth-child(n + 6) {
+  --child: 5;
+}
+
 .has-scroll-reveal .card[data-reveal].is-visible:hover {
   transform: translateY(-6px);
   transition-delay: 0ms;

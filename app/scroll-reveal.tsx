@@ -21,7 +21,8 @@ export default function ScrollReveal() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+          } else if (entry.boundingClientRect.top > 0) {
+            entry.target.classList.remove("is-visible");
           }
         });
       },
@@ -29,7 +30,7 @@ export default function ScrollReveal() {
     );
 
     const track = (element: HTMLElement) => {
-      if (tracked.has(element) || element.classList.contains("is-visible")) return;
+      if (tracked.has(element)) return;
       tracked.add(element);
 
       const siblings = element.parentElement
